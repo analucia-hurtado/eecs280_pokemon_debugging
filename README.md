@@ -1,1 +1,1 @@
-# eecs280_pokemon_debugging
+# eecs280_pokemon_lab
