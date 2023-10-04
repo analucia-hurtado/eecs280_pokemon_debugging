@@ -15,9 +15,10 @@ private:
   std::string name;
   vector<Pokemon> pokemon; // all pokemon the trainer owns
   vector<Pokemon> active_roster; // current pokemon that are ready for battle
-  // INVARIANT: All trainers have exactly 5 pokemon (assumption for simplicity)
 
 public:
+  // INVARIANT: All trainers have exactly 5 pokemon (assumption for simplicity)
+  static const size_t ROSTER_SIZE = 5;
 
   // Creates a trainer with the given name and a default set of starter
   // pokemon, all at level 1, in this order:

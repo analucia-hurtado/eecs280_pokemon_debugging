@@ -49,7 +49,7 @@ public:
     cout << "-----" << *player << " vs. " << *gym_leader << "-----" << endl;
 
     int num_wins = 0;
-    for(int i = 0; i < 5; ++i) {
+    for(int i = 0; i < Trainer::ROSTER_SIZE; ++i) {
       if (one_battle(gym_leader)) {
         ++num_wins;
       }
@@ -62,13 +62,13 @@ public:
 
   void assess_result(Trainer *gym_leader, int num_wins) {
     cout << "Result: " << *player << "=" << num_wins << ", "
-         << *gym_leader << "=" << 5 - num_wins << endl;
+         << *gym_leader << "=" << Trainer::ROSTER_SIZE - num_wins << endl;
 
     if (num_wins >= 3) {
       defeated.push_back(gym_leader);
     }
 
-    if (num_wins == 0 || num_wins == 5) {
+    if (num_wins == 0 || num_wins == Trainer::ROSTER_SIZE) {
       cout << "It's a clean sweep!" << endl;
     }
   }
