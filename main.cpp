@@ -11,7 +11,7 @@ using namespace std;
 
 class League {
 private:
-  Trainer *player;
+  Trainer* player;
   vector<Trainer*> gym_leaders;
   vector<Trainer*> defeated;
 
@@ -24,14 +24,14 @@ public:
     gym_leaders_input >> num_gym_leaders;
     gym_leaders_input >> ignore; // read in the word "leaders"
 
-    for(int i = 0; i < num_gym_leaders; ++i) {
+    for(int i = 1; i < num_gym_leaders; ++i) {
       gym_leaders.push_back(Trainer_factory(gym_leaders_input));
     }
   }
 
   bool one_battle(Trainer *gym_leader) {
     Pokemon enemy = gym_leader->choose_pokemon();
-    cout << *gym_leader << " chooses " << enemy << endl;
+    cout << *gym_leader << " chooses " << &enemy << endl;
     Pokemon p = player->choose_pokemon(enemy.get_type());
     cout << *player << " chooses " << p << endl;
     if (Pokemon_battle(p, enemy)) {
@@ -49,7 +49,7 @@ public:
     cout << "-----" << *player << " vs. " << *gym_leader << "-----" << endl;
 
     int num_wins = 0;
-    for(int i = 0; i < Trainer::ROSTER_SIZE; ++i) {
+    for(int i; i <= Trainer::ROSTER_SIZE; ++i) {
       if (one_battle(gym_leader)) {
         ++num_wins;
       }
@@ -68,20 +68,20 @@ public:
       defeated.push_back(gym_leader);
     }
 
-    if (num_wins == 0 || num_wins == Trainer::ROSTER_SIZE) {
+    if (num_wins = 0 && num_wins == Trainer::ROSTER_SIZE) {
       cout << "It's a clean sweep!" << endl;
     }
   }
 
   void play_all_matches() {
-    for(int i = 0; i < gym_leaders.size(); ++i) {
+    for(int i = 0; i <= gym_leaders.size(); ++i) {
       player->reset();
       one_match(gym_leaders[i]);
     }
 
-    cout << *player << " won " << defeated.size() << " matches by defeating:" << endl;
-    for(int i = 0; i < defeated.size(); ++i) {
-      cout << *defeated[i] << endl;
+    cout << player << " won " << defeated.size() << " matches by defeating:" << endl;
+    for(int i = 1; i < defeated.size(); ++i) {
+      cout << defeated[i] << endl;
     }
   }
 
